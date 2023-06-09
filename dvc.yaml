@@ -45,7 +45,7 @@ stages:
     deps:
       - src/Crop_Image_Classification/pipeline/stage_04_evaluation.py
       - config/config.yaml
-      - artifacts/data_ingestion/Chicken-fecal-images
+      - artifacts/data_ingestion/Agricultural-crops
       - artifacts/training/model.h5
     params:
       - IMAGE_SIZE
