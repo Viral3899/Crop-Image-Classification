@@ -35,8 +35,8 @@ stages:
         WEIGHTS: imagenet
     outs:
     - path: artifacts/prepare_base_model
-      md5: 406307b63cfcd9b9702d0cb8e52c53b2.dir
-      size: 122829304
+      md5: 71b40f7c4c3adcb2423a5aa73190f7c2.dir
+      size: 191879968
       nfiles: 2
   training:
     cmd: python src/Crop_Image_Classification/pipeline/stage_03_training.py
@@ -46,8 +46,8 @@ stages:
       size: 83062937
       nfiles: 825
     - path: artifacts/prepare_base_model
-      md5: 406307b63cfcd9b9702d0cb8e52c53b2.dir
-      size: 122829304
+      md5: 71b40f7c4c3adcb2423a5aa73190f7c2.dir
+      size: 191879968
       nfiles: 2
     - path: config/config.yaml
       md5: 2b5e35244a7ea927352724c44da64faf
@@ -69,8 +69,8 @@ stages:
         - 3
     outs:
     - path: artifacts/training/model.h5
-      md5: a0ea1fff84c30b430d1ea655eaf45e32
-      size: 63910040
+      md5: 577468d6b1a41aeaf8c4f2c989199f68
+      size: 103808888
   evaluation:
     cmd: python src/Crop_Image_Classification/pipeline/stage_04_evaluation.py
     deps:
@@ -79,8 +79,8 @@ stages:
       size: 83062937
       nfiles: 825
     - path: artifacts/training/model.h5
-      md5: a0ea1fff84c30b430d1ea655eaf45e32
-      size: 63910040
+      md5: 577468d6b1a41aeaf8c4f2c989199f68
+      size: 103808888
     - path: config/config.yaml
       md5: 2b5e35244a7ea927352724c44da64faf
       size: 781
@@ -96,5 +96,5 @@ stages:
         - 3
     outs:
     - path: scores.json
-      md5: 8f2fb6d35cd03aca264e700ab72ea6c2
-      size: 95
+      md5: 2d27ef41750bc3db8e79811285dcbb26
+      size: 94

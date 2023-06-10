@@ -54,7 +54,8 @@ class Training:
             shuffle=True,
             **dataflow_kwargs
         )
-
+        num_training_samples = self.train_generator.n
+        print(f"Number of training samples after augmentation: {num_training_samples}")
     @staticmethod
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
