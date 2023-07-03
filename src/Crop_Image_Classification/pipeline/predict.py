@@ -13,7 +13,7 @@ class PredictionPipeline:
         model = load_model(os.path.join("artifacts", "training", "model.h5"))
 
         imagename = self.filename
-        test_image = image.load_img(imagename, target_size=(299, 299))  # Update target_size
+        test_image = image.load_img(imagename, target_size=(299, 299))
         test_image = image.img_to_array(test_image)
         test_image = test_image / 255.0  # Normalize the image
 
@@ -22,10 +22,10 @@ class PredictionPipeline:
 
         # Make the prediction
         predictions = model.predict(test_image)
+        print('----------->', predictions, '<-----------')
         predicted_class_index = np.argmax(predictions)
-
-        class_labels = sorted(os.listdir('artifacts\data_ingestion\Agricultural-crops'))  # Replace with the actual path
+        class_labels = sorted(os.listdir('artifacts/data_ingestion/Agricultural-crops'))  # Replace with the actual path
 
         prediction = class_labels[predicted_class_index]
 
-        return [{"image": prediction}]
+        return np.max(predictions), prediction
